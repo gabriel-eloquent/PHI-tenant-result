@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "8335a7f6-cad7-4042-b3ef-3dcc4e4f5eed",
+		"name": "Firebase Emulator PHI Results Tenant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getResults",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/t-miri-phi/us-central1/getResults?district=Gotham City",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"t-miri-phi",
+						"us-central1",
+						"getResults"
+					],
+					"query": [
+						{
+							"key": "district",
+							"value": "Gotham City"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resultsAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"result\": \"NOT DETECTED\",\n    \"barcode\": \"FB0043435\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/t-miri-phi/us-central1/resultsAdd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"t-miri-phi",
+						"us-central1",
+						"resultsAdd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "barcodeEmailMapping",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"bm@gotham.com\",\n    \"barcode\": \"FB0043435\",\n    \"district\": \"Gotham City\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/t-miri-phi/us-central1/barcodeEmailMapping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"t-miri-phi",
+						"us-central1",
+						"barcodeEmailMapping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "districtEmailMapping",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emails\": [\"bm@gotham.com\", \"greg@skynet.com\", \"jane@dland.com\"],\n    \"district\": \"Gotham City\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/t-miri-phi/us-central1/districtEmailMapping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"t-miri-phi",
+						"us-central1",
+						"districtEmailMapping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPHI",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Bruce\",\n    \"lastName\": \"Wayne\",\n    \"birthday\": \"1965/12/12\",\n    \"sex\": \"M\",\n    \"race\": \"white\",\n    \"email\": \"bm@gotham.com\",\n    \"district\": \"Gotham City\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/t-miri-phi/us-central1/addPHI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"t-miri-phi",
+						"us-central1",
+						"addPHI"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
