@@ -91,3 +91,39 @@ exports.createUser = functions.firestore
       .doc("problems")
       .add({ ...resultData, text: "Missing some data" });
   });
+
+/**
+ * Whenever new compiled result and PHI is being created send the notification to the email
+ */
+exports.onResultCreated = functions.firestore
+  .document("districtResults/{districtId}/results/{email}")
+  .onCreate(async (snap, context) => {
+    const resultPHIData = snap.data();
+
+    console.log(
+      `Send notification to ${email} with result ${resultPHIData.result}`
+    );
+  });
+
+/**
+ * Whenever new email added check if there are results and send
+ * (This is raw code - will trigger once for disstrict now - but the idea is this)
+ */
+exports.onResultCreated = functions.firestore
+  .document("BarcodePHIMapping/{barcode}")
+  .onCreate(async (snap, context) => {
+    const { email } = snap.data();
+    const { district } = await db
+      .doc("districtPHIMapping")
+      .where("email", "array-contains", email)
+      .get()
+      .data();
+    const resultPHIData = await db
+      .doc(`districtResults/${district}/results/${email}`)
+      .get()
+      .data();
+
+    console.log(
+      `Send notification to ${email} with result ${resultPHIData.result}`
+    );
+  });
